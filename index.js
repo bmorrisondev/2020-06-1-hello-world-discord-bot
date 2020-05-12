@@ -9,6 +9,10 @@ client.on('ready', () => {
 
 // Register an event to handle incoming messages
 client.on('message', async msg => {
+  // This block will prevent the bot from responding to itself and other bots
+  if(msg.author.bot) {
+    return
+  }
 
   // Check if the message starts with '!hello' and respond with 'world!' if it does.
   if(msg.content.startsWith("!hello")) {
